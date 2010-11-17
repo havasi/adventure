@@ -1,0 +1,1276 @@
+(lp0
+(lp1
+S'walls'
+p2
+aS'generic surroundings'
+p3
+aa(lp4
+S'wall'
+p5
+ag3
+aa(lp6
+S'ceiling'
+p7
+ag3
+aa(lp8
+S'ground'
+p9
+ag3
+aa(lp10
+S'area'
+p11
+ag3
+aa(lp12
+S'room'
+p13
+ag3
+aa(lp14
+S'here'
+p15
+ag3
+aa(lp16
+S'floor'
+p17
+aS'generic surroundings when the location is not floored'
+p18
+aa(lp19
+S'floorboard'
+p20
+ag18
+aa(lp21
+S'floorboards'
+p22
+ag18
+aa(lp23
+S'search'
+p24
+aS'searching'
+p25
+aa(lp26
+S'stairs'
+p27
+aS'staircase'
+p28
+aa(lp29
+S'stair'
+p30
+ag28
+aa(lp31
+S'staircase'
+p32
+ag28
+aa(lp33
+S'upstairs'
+p34
+aS'staircase'
+p35
+aa(lp36
+S'downstairs'
+p37
+ag35
+aa(lp38
+S'go down [staircase]'
+p39
+aS'climbing'
+p40
+aa(lp41
+S'go up [staircase]'
+p42
+aS'climbing'
+p43
+aa(lp44
+S'tower'
+p45
+aS'castle exterior'
+p46
+aa(lp47
+S'tower'
+p48
+ag46
+aa(lp49
+S'drawbridge'
+p50
+ag46
+aa(lp51
+S'bridge'
+p52
+ag46
+aa(lp53
+S'door'
+p54
+aS'gate'
+p55
+aa(lp56
+S'fire'
+p57
+aS'fireplace'
+p58
+aa(lp59
+S'whistling'
+p60
+ag58
+aa(lp61
+S'wind'
+p62
+ag58
+aa(lp63
+S'look behind [something]'
+p64
+aS'looking under'
+p65
+aa(lp66
+S'bars'
+p67
+aS'cage'
+p68
+aa(lp69
+S'metal'
+p70
+ag68
+aa(lp71
+S'broad'
+p72
+ag68
+aa(lp73
+S'strap-like'
+p74
+ag68
+aa(lp75
+S'bars of metal'
+p76
+ag68
+aa(lp77
+S'marks'
+p78
+ag68
+aa(lp79
+S'treasures'
+p80
+ag68
+aa(lp81
+S'treasure'
+p82
+ag68
+aa(lp83
+S'house treasures'
+p84
+ag68
+aa(lp85
+S'puzzle piece'
+p86
+aS'jagged piece'
+p87
+aa(lp88
+S'scepter'
+p89
+aS'sceptre'
+p90
+aa(lp91
+S'adjust [something]'
+p92
+aS'fitting'
+p93
+aa(lp94
+S'maze'
+p95
+aS'labyrinth'
+p96
+aa(lp97
+S'mosaic'
+p98
+ag96
+aa(lp99
+S'tiles'
+p100
+ag96
+aa(lp101
+S'tiled'
+p102
+ag96
+aa(lp103
+S'floor'
+p104
+aS'labyrinth when the location is the maze room'
+p105
+aa(lp106
+S'bear'
+p107
+aS'carved bears'
+p108
+aa(lp109
+S'bare'
+p110
+aS'courtyard view'
+p111
+aa(lp112
+S'banister'
+p113
+aS'steps'
+p114
+aa(lp115
+S'hourglass'
+p116
+aS'sand'
+p117
+aa(lp118
+S'dayglass'
+p119
+ag117
+aa(lp120
+S'bulb'
+p121
+ag117
+aa(lp122
+S'glass'
+p123
+ag117
+aa(lp124
+S'timer'
+p125
+ag117
+aa(lp126
+S'histories'
+p127
+aS'papers'
+p128
+aa(lp129
+S'history'
+p130
+ag128
+aa(lp131
+S'records'
+p132
+ag128
+aa(lp133
+S'record'
+p134
+ag128
+aa(lp135
+S'bench'
+p136
+aS'benches'
+p137
+aa(lp138
+S'contracts'
+p139
+aS'contract book'
+p140
+aa(lp141
+S'gun'
+p142
+aS'assortment'
+p143
+aa(lp144
+S'musket'
+p145
+ag143
+aa(lp146
+S'dagger'
+p147
+ag143
+aa(lp148
+S'daggers'
+p149
+ag143
+aa(lp150
+S'sword'
+p151
+ag143
+aa(lp152
+S'swords'
+p153
+ag143
+aa(lp154
+S'weapon'
+p155
+ag143
+aa(lp156
+S'curious'
+p157
+aS'bench'
+p158
+aa(lp159
+S'relief'
+p160
+ag158
+aa(lp161
+S'linen'
+p162
+aS'materials'
+p163
+aa(lp164
+S'basket'
+p165
+ag163
+aa(lp166
+S'threads'
+p167
+ag163
+aa(lp168
+S'thread'
+p169
+ag163
+aa(lp170
+S'cloth'
+p171
+ag163
+aa(lp172
+S'fabric'
+p173
+ag163
+aa(lp174
+S'wrap [something] around [something]'
+p175
+aS'putting it on'
+p176
+aa(lp177
+S'rose'
+p178
+aS'roses'
+p179
+aa(lp180
+S'skull'
+p181
+ag179
+aa(lp182
+S'pick [something]'
+p183
+aS'taking'
+p184
+aa(lp185
+S'guard'
+p186
+aS'windchimes'
+p187
+aa(lp188
+S'guards'
+p189
+ag187
+aa(lp190
+S'chimes'
+p191
+ag187
+aa(lp192
+S'chime'
+p193
+ag187
+aa(lp194
+S'chain'
+p195
+ag187
+aa(lp196
+S'padlock'
+p197
+ag187
+aa(lp198
+S'small'
+p199
+ag187
+aa(lp200
+S'lock'
+p201
+ag187
+aa(lp202
+S'untie [something]'
+p203
+aS'taking'
+p204
+aa(lp205
+S'loosen [something]'
+p206
+ag204
+aa(lp207
+S'free [something]'
+p208
+ag204
+aa(lp209
+S'take down [something]'
+p210
+aS'taking'
+p211
+aa(lp212
+S'bones'
+p213
+aS'relics'
+p214
+aa(lp215
+S'sandy'
+p216
+aS'dust'
+p217
+aa(lp218
+S'sifting'
+p219
+ag217
+aa(lp220
+S'dry'
+p221
+ag217
+aa(lp222
+S'floor'
+p223
+aS"dust when the player is in virgin's end"
+p224
+aa(lp225
+S'sand'
+p226
+ag224
+aa(lp227
+S'drip'
+p228
+aS'leak'
+p229
+aa(lp230
+S'dripping'
+p231
+ag229
+aa(lp232
+S'oily'
+p233
+ag229
+aa(lp234
+S'water'
+p235
+ag229
+aa(lp236
+S'fill [something]'
+p237
+aS'filling'
+p238
+aa(lp239
+S'floor'
+p240
+aS'stones when the player is in paradise'
+p241
+aa(lp242
+S'trap'
+p243
+aS'trapdoor'
+p244
+aa(lp245
+S'door'
+p246
+ag244
+aa(lp247
+S'lettering'
+p248
+aS'inscription'
+p249
+aa(lp250
+S'hold [something preferably held] [by] [something]'
+p251
+aS'juxtaposing it to'
+p252
+aa(lp253
+S'put [something preferably held] [by] [something]'
+p254
+aS'juxtaposing it to'
+p255
+aa(lp256
+S'lucrezia'
+p257
+aS'image'
+p258
+aa(lp259
+S'tambourine'
+p260
+ag258
+aa(lp261
+S'floor'
+p262
+aS'mud when the player is in rooted room'
+p263
+aa(lp264
+S'roots'
+p265
+ag263
+aa(lp266
+S'root'
+p267
+ag263
+aa(lp268
+S'refuse'
+p269
+aS'scrap'
+p270
+aa(lp271
+S'structures'
+p272
+ag270
+aa(lp273
+S'wooden'
+p274
+ag270
+aa(lp275
+S'molds'
+p276
+ag270
+aa(lp277
+S'clay'
+p278
+ag270
+aa(lp279
+S'metal'
+p280
+ag270
+aa(lp281
+S'pieces'
+p282
+ag270
+aa(lp283
+S'bells'
+p284
+ag270
+aa(lp285
+S'bar'
+p286
+aS'bars'
+p287
+aa(lp288
+S'painting'
+p289
+aS'wedding treasure'
+p290
+aa(lp291
+S'still life'
+p292
+ag290
+aa(lp293
+S'table'
+p294
+ag290
+aa(lp295
+S'girdle'
+p296
+ag290
+aa(lp297
+S'inkpot'
+p298
+ag290
+aa(lp299
+S'helmet'
+p300
+ag290
+aa(lp301
+S'green'
+p302
+ag290
+aa(lp303
+S'cloven shoes'
+p304
+ag290
+aa(lp305
+S'paintings'
+p306
+ag290
+aa(lp307
+S'supper with m'
+p308
+aS'supper'
+p309
+aa(lp310
+S'painting'
+p311
+ag309
+aa(lp312
+S'paintings'
+p313
+ag309
+aa(lp314
+S'still life'
+p315
+ag309
+aa(lp316
+S'linen'
+p317
+ag309
+aa(lp318
+S'napkins'
+p319
+ag309
+aa(lp320
+S'bread'
+p321
+ag309
+aa(lp322
+S'fruit'
+p323
+ag309
+aa(lp324
+S'picture'
+p325
+aS'jigsaw puzzle'
+p326
+aa(lp327
+S'piece'
+p328
+aS'puzzle when the jagged piece is not visible'
+p329
+aa(lp330
+S'pieces'
+p331
+ag329
+aa(lp332
+S'jigsaw'
+p333
+aS'jagged piece when the jigsaw puzzle is not visible'
+p334
+aa(lp335
+S'finish [someone]'
+p336
+aS'attacking'
+p337
+aa(lp338
+S'my bedroom'
+p339
+aS'crystal bedroom'
+p340
+aa(lp341
+S'gleaming'
+p342
+aS'mirrors'
+p343
+aa(lp344
+S'chandeliers'
+p345
+ag343
+aa(lp346
+S'mirror'
+p347
+ag343
+aa(lp348
+S'chandelier'
+p349
+ag343
+aa(lp350
+S'glittering'
+p351
+ag343
+aa(lp352
+S'balcony'
+p353
+aS'generic surroundings when the location is the balcony'
+p354
+aa(lp355
+S'branches'
+p356
+aS'forest'
+p357
+aa(lp358
+S'trees'
+p359
+ag357
+aa(lp360
+S'leaves'
+p361
+ag357
+aa(lp362
+S'leaf'
+p363
+ag357
+aa(lp364
+S'tree'
+p365
+ag357
+aa(lp366
+S'pasture'
+p367
+ag357
+aa(lp368
+S'pastureland'
+p369
+ag357
+aa(lp370
+S'plain'
+p371
+ag357
+aa(lp372
+S'home'
+p373
+ag357
+aa(lp374
+S'family home'
+p375
+ag357
+aa(lp376
+S'ocean'
+p377
+aS'sea'
+p378
+aa(lp379
+S'wave'
+p380
+ag378
+aa(lp381
+S'ship'
+p382
+ag378
+aa(lp383
+S'ships'
+p384
+ag378
+aa(lp385
+S'swim'
+p386
+aS'swimming'
+p387
+aa(lp388
+S'dive'
+p389
+ag387
+aa(lp390
+S'swim in/across [something]'
+p391
+aS'swimming in'
+p392
+aa(lp393
+S'bell room'
+p394
+aS'bellroom'
+p395
+aa(lp396
+S'bells'
+p397
+aS'bell collection'
+p398
+aa(lp399
+S'clappers'
+p400
+ag398
+aa(lp401
+S'clapper'
+p402
+ag398
+aa(lp403
+S'tambourine'
+p404
+ag398
+aa(lp405
+S'tambourines'
+p406
+ag398
+aa(lp407
+S'gongs'
+p408
+ag398
+aa(lp409
+S'gong'
+p410
+aS'bell collection when the bronze gong is not visible'
+p411
+aa(lp412
+S'roses'
+p413
+aS'north window'
+p414
+aa(lp415
+S'rose'
+p416
+ag414
+aa(lp417
+S'vine'
+p418
+ag414
+aa(lp419
+S'vines'
+p420
+ag414
+aa(lp421
+S'framing'
+p422
+ag414
+aa(lp423
+S'look out [something]'
+p424
+aS'searching'
+p425
+aa(lp426
+S'ring [ringer]'
+p427
+aS'attacking'
+p428
+aa(lp429
+S'lamplighter'
+p430
+aS'silver bell'
+p431
+aa(lp432
+S'cowbell'
+p433
+aS'cow bell'
+p434
+aa(lp435
+S'drawing'
+p436
+aS'drawings'
+p437
+aa(lp438
+S'diagram'
+p439
+ag437
+aa(lp440
+S'bears'
+p441
+ag437
+aa(lp442
+S'lions'
+p443
+ag437
+aa(lp444
+S'sketches'
+p445
+ag437
+aa(lp446
+S'sketch'
+p447
+ag437
+aa(lp448
+S'digestive tract'
+p449
+ag437
+aa(lp450
+S'clouds'
+p451
+aS'rain'
+p452
+aa(lp453
+S'cloud'
+p454
+ag452
+aa(lp455
+S'sky'
+p456
+ag452
+aa(lp457
+S'grey'
+p458
+ag452
+aa(lp459
+S'pattering'
+p460
+ag452
+aa(lp461
+S'outside'
+p462
+aS'great outdoors'
+p463
+aa(lp464
+S'underground'
+p465
+aS'basement'
+p466
+aa(lp467
+S'control rooms'
+p468
+aS'stinky'
+p469
+aa(lp470
+S'rose cloister'
+p471
+aS'enclosed'
+p472
+aa(lp473
+S'food'
+p474
+aS'feast'
+p475
+aa(lp476
+S'platter'
+p477
+ag475
+aa(lp478
+S'considerable'
+p479
+ag475
+aa(lp480
+S'feed [edible thing] to [someone]'
+p481
+aS'giving it to'
+p482
+aa(lp483
+S'read [something] about/on [text]'
+p484
+aS'consulting it about'
+p485
+aa(lp486
+S'read [something]'
+p487
+aS'reading'
+p488
+aa(lp489
+S'use [an edible thing]'
+p490
+aS'eating'
+p491
+aa(lp492
+S'use [a wearable thing]'
+p493
+aS'wearing'
+p494
+aa(lp495
+S'use [a closed openable container]'
+p496
+aS'opening'
+p497
+aa(lp498
+S'use [an open openable container]'
+p499
+aS'closing'
+p500
+aa(lp501
+S'use [a switched off device]'
+p502
+aS'switching on'
+p503
+aa(lp504
+S'use [something]'
+p505
+aS'using'
+p506
+aa(lp507
+S'use [an open door]'
+p508
+aS'entering'
+p509
+aa(lp510
+S'eat [an edible thing]'
+p511
+aS'eating'
+p512
+aa(lp513
+S'wear [a wearable thing]'
+p514
+aS'wearing'
+p515
+aa(lp516
+S'open [something closed]'
+p517
+aS'opening'
+p518
+aa(lp519
+S'close [something open]'
+p520
+aS'closing'
+p521
+aa(lp522
+S'enter [something enterable]'
+p523
+aS'entering'
+p524
+aa(lp525
+S'enter [a door]'
+p526
+aS'entering'
+p527
+aa(lp528
+S'go to [any room]'
+p529
+aS'approaching'
+p530
+aa(lp531
+S'go back to [any room]'
+p532
+ag530
+aa(lp533
+S'return to [any room]'
+p534
+ag530
+aa(lp535
+S'revisit [any room]'
+p536
+ag530
+aa(lp537
+S'go back'
+p538
+aS'retreating'
+p539
+aa(lp540
+S'back'
+p541
+aS'retreating'
+p542
+aa(lp543
+S'return'
+p544
+ag542
+aa(lp545
+S'retreat'
+p546
+ag542
+aa(lp547
+S'leave [any room]'
+p548
+aS'departing'
+p549
+aa(lp550
+S'go outside [any room]'
+p551
+ag549
+aa(lp552
+S'exits'
+p553
+aS'asking for directions'
+p554
+aa(lp555
+S'dirs'
+p556
+ag554
+aa(lp557
+S'directions'
+p558
+ag554
+aa(lp559
+S'dir'
+p560
+ag554
+aa(lp561
+S'find exits'
+p562
+ag554
+aa(lp563
+S'find exit'
+p564
+ag554
+aa(lp565
+S'look for [any pending thing]'
+p566
+aS'hunting'
+p567
+aa(lp568
+S'go to [any pending thing]'
+p569
+aS'hunting'
+p570
+aa(lp571
+S'find [any seen thing]'
+p572
+aS'finding'
+p573
+aa(lp574
+S'look for [any seen thing]'
+p575
+aS'finding'
+p576
+aa(lp577
+S'go to [any seen thing]'
+p578
+aS'finding'
+p579
+aa(lp580
+S'hint about [text]'
+p581
+aS'hinting topically about'
+p582
+aa(lp583
+S'hint about [any seen thing]'
+p584
+aS'hinting about'
+p585
+aa(lp586
+S'remember [any seen thing]'
+p587
+aS'hinting about'
+p588
+aa(lp589
+S'hint about [any pending thing]'
+p590
+aS'hinting about'
+p591
+aa(lp592
+S'remember [any pending thing]'
+p593
+aS'hinting about'
+p594
+aa(lp595
+S'hint about [any visited room]'
+p596
+aS'hinting roomily about'
+p597
+aa(lp598
+S'remember [any visited room]'
+p599
+aS'hinting roomily about'
+p600
+aa(lp601
+S'novice mode off'
+p602
+aS'stopping novice mode'
+p603
+aa(lp604
+S'novice off'
+p605
+aS'stopping novice mode'
+p606
+aa(lp607
+S'novice mode on'
+p608
+aS'starting novice mode'
+p609
+aa(lp610
+S'novice on'
+p611
+aS'starting novice mode'
+p612
+aa(lp613
+S'look [something]'
+p614
+aS'examining'
+p615
+aa(lp616
+S'bite [something edible]'
+p617
+aS'eating'
+p618
+aa(lp619
+S'bite [something]'
+p620
+aS'attacking'
+p621
+aa(lp622
+S'kick [something]'
+p623
+aS'attacking'
+p624
+aa(lp625
+S'kick in/down/through [something]'
+p626
+ag624
+aa(lp627
+S'start [something]'
+p628
+aS'switching on'
+p629
+aa(lp630
+S'start over/again'
+p631
+aS'restarting the game'
+p632
+aa(lp633
+S'stop [something]'
+p634
+aS'switching off'
+p635
+aa(lp636
+S'reach for/towards/to [something]'
+p637
+aS'taking'
+p638
+aa(lp639
+S'throw away [something]'
+p640
+aS'dropping'
+p641
+aa(lp642
+S'jump on/onto [something]'
+p643
+aS'entering'
+p644
+aa(lp645
+S'get down'
+p646
+aS'exiting'
+p647
+aa(lp648
+S'wait [around]'
+p649
+aS'waiting'
+p650
+aa(lp651
+S'wait [locally]'
+p652
+ag650
+aa(lp653
+S'wait in [any room]'
+p654
+aS'waiting within'
+p655
+aa(lp656
+S'look [around]'
+p657
+aS'looking'
+p658
+aa(lp659
+S'go [around]'
+p660
+aS'going'
+p661
+aa(lp662
+S'go [around] [castle]'
+p663
+aS'going'
+p664
+aa(lp665
+S'search [castle]'
+p666
+aS'going'
+p667
+aa(lp668
+S'look [around] [castle]'
+p669
+ag667
+aa(lp670
+S'put out [something]'
+p671
+aS'extinguishing'
+p672
+aa(lp673
+S'blow out [something]'
+p674
+aS'extinguishing'
+p675
+aa(lp676
+S'blow on/in/through [something]'
+p677
+aS'blowing'
+p678
+aa(lp679
+S'extinguish [something]'
+p680
+aS'extinguishing'
+p681
+aa(lp682
+S'show inventory/invent/i/inv'
+p683
+aS'taking inventory'
+p684
+aa(lp685
+S'pray for/to [text]'
+p686
+aS'praying to'
+p687
+aa(lp688
+S'get [things inside] [out of] [something]'
+p689
+aS'removing it from'
+p690
+aa(lp691
+S'set [things preferably held] down'
+p692
+aS'dropping'
+p693
+aa(lp694
+S'set [things preferably held] [on] [something]'
+p695
+aS'putting it on'
+p696
+aa(lp697
+S'set down [things preferably held]'
+p698
+aS'dropping'
+p699
+aa(lp700
+S'end'
+p701
+aS'quitting the game'
+p702
+aa(lp703
+S'search [any visited room]'
+p704
+aS'ransacking'
+p705
+aa(lp706
+S'credits'
+p707
+aS'asking for help'
+p708
+aa.
