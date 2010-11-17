@@ -36,3 +36,7 @@ def make_blend(thefile):
     similarity = divisi2.reconstruct_similarity(u,s)
     pd[thefile.split('.')[0]] = similarity
     return similarity
+
+def understand(game, object):
+    top_stuff = top_game_sims(game, object)
+    return 'Understand "' + '" or "'.join(top_stuff) + '" as the ' + object + '.'
