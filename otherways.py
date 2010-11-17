@@ -40,3 +40,5 @@ def make_blend(thefile):
 def understand(game, object):
     top_stuff = top_game_sims(game, object)
     return 'Understand "' + '" or "'.join(top_stuff) + '" as the ' + object + '.'
+
+understand(bronze, 'cow')

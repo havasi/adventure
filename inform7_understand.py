@@ -27,6 +27,6 @@ def understand_verb_reader(file):
                 print [source, target]
         except ParseException:
             pass
-
+    return got
+        
 understand_verb_reader(open('bronze.ni'))
-

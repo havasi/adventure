@@ -1,5 +1,9 @@
 from pyparsing import *
 from collections import defaultdict
+from csc import divisi2
+from csc.nl import get_nl
+
+english = get_nl('en')
 
 def join_words(lst):
     return ' '.join(lst)
@@ -105,5 +109,14 @@ def inform_parser(file):
                 print named
                 named_assertions.append(named)
     return named_assertions
-inform_parser(open('bronze_compiled.inf'))
 
+def make_divisi_matrix(file):
+    thinglist = inform_parser(open(file))
+    game = file.split('.')[0]
+    thinglist = [(x[3], english.normalize(x[0]), x[1], english.normalize(x[2])) for x in thinglist]
+    for thing in thinglist: print thing
+    game_matrix = divisi2.make_sparse(thinglist).normalize_all()
+    print game
+    divisi2.save(game_matrix, game + '.pickle')
+    
+make_divisi_matrix('bronze_compiled.inf')
