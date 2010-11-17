@@ -7,11 +7,12 @@ class Inform6Parser:
     def __init__(self, name):
         self.parents = collections.defaultdict(set)
         self.names = {}
+        self.filename = name
         self._parse()
     
     def _parse(self):
         path = {}
-        for line in open(sys.argv[1]):
+        for line in open(self.filename):
             words = line.strip().split()
             if len(words) < 2:
                 continue
@@ -33,5 +34,5 @@ if __name__ == '__main__':
         with found_in [; if (TestRegionalContainment(location, I282_stinky)) rtrue; ],
     but I think 'with found_in' is only for environmental objects so it should be fine.
     '''
-    for k, v in Inform6Parser('bronze_compiler.inf').parents.items():
+    for k, v in Inform6Parser('bronze_compiled.inf').parents.items():
         print '%-28s' % k, list(v)
