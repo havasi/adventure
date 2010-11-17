@@ -21,8 +21,10 @@ def understand_verb_reader(file):
     for sentence in file.read().split('.'):
         try:
             parsed = understand_instruction.parseString(sentence.lower())
-            print parsed
-            got.append(parsed)
+            keyword, sources, target = parsed
+            for source in sources:
+                got.append([source, target])
+                print [source, target]
         except ParseException:
             pass
 
