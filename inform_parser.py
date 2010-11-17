@@ -2,6 +2,7 @@ from pyparsing import *
 from collections import defaultdict
 from csc import divisi2
 from csc.nl import get_nl
+from locations import Inform6Parser
 
 english = get_nl('en')
 
@@ -82,8 +83,9 @@ prop_line = (has_line | hasnt_line | name_line | canonical_name_line
 defn_end = (SEMICOLON + stringEnd).setParseAction(id_forgetter)
 inform_line = (defn_line | prop_line | defn_end)
 
-def inform_parser(file):
+def inform_parser(filename):
     assertions = []
+    file = open(filename)
     for line in file:
         try:
             parse_out = inform_line.parseString(line.strip())
@@ -94,6 +96,7 @@ def inform_parser(file):
                 assertions.extend(new_features)
         except ParseException:
             continue
+    file.close()
 
     named_assertions = []
     for assertion in assertions:
@@ -108,11 +111,21 @@ def inform_parser(file):
                 named = (name, rel, targetname, polarity)
                 print named
                 named_assertions.append(named)
+
+    locations = Inform6Parser(filename).parents
+    for key, values in locations.items():
+        for value in values:
+            for name1 in idsToNames[key]:
+                for name2 in idsToNames[value]:
+                    named = (name1, rel, name2, True)
+                    print named
+                    named_assertions.append(named)
+
     return named_assertions
 
-def make_divisi_matrix(file):
-    thinglist = inform_parser(open(file))
-    game = file.split('.')[0]
+def make_divisi_matrix(filename):
+    thinglist = inform_parser(filename)
+    game = filename.split('.')[0]
     thinglist = [(x[3], english.normalize(x[0]), x[1], english.normalize(x[2])) for x in thinglist]
     for thing in thinglist: print thing
     game_matrix = divisi2.make_sparse(thinglist).normalize_all()
