@@ -117,7 +117,7 @@ def inform_parser(filename):
         for value in values:
             for name1 in idsToNames[key]:
                 for name2 in idsToNames[value]:
-                    named = (name1, rel, name2, True)
+                    named = (name1, 'AtLocation', name2, True)
                     print named
                     named_assertions.append(named)
 
