@@ -50,7 +50,7 @@ def make_blend(thefile):
     blended_matrix = blend([conceptnet, thegame])
     u,s,v = blended_matrix.svd()
     
-    similarity = divisi2.reconstruct_similarity(u, s) #, post_normalize=False)
+    similarity = divisi2.reconstruct_similarity(u, s, offset=3) #, post_normalize=False)
     pd.mkdir(thefile.split('.')[0])
     pd[thefile.split('.')[0]]['blend'] = similarity
     return similarity
