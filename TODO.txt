@@ -1,11 +1,5 @@
 Catherine is working on:
-* Normalize (post normalize + add 5)
-Now DenseMatrix.normalize_* and divisi2.reconstruct_* take two
-optional arguments:
-* offset: an amount to add to each norm before dividing by the norms
-* cutoff: this is basically for optimization. If a row has less than
-this magnitude, just throw it out -- it's never going to be part of a
-meaningful result and it'll just slow you down.
+Probably start at near-misses?
 
 Elizabeth is working on:
 * Verbs
@@ -19,18 +13,18 @@ then you add "A person can <verb>"
 and "A <noun> can be <verb>ed"
 
 
-Someone should work on:
-* WordNet or not to wordnet? Catherine wrote code to order things via WN similarity. Does it help?  Does it hurt?  Should it just be blended in normally? Which similarity is best.
+Good quick projects:
 * Re-add inflections when generating the understand statements.  Thus "Dwell" turns into "Dwelling".
 * Generate list of concepts not to use a similarity - we can do that from the game matrix.  Put those in the .over file.
 * For goodnessake, add a threshold in the thing that generates the "understand" statements!
 * Ad-hoc cats for things with multiple descriptors.  Catherine wrote the capability into the reasoning code, we need to figure it out from the game matrix.
+
+Someone should work on:
+* WordNet or not to wordnet? Catherine wrote code to order things via WN similarity. Does it help?  Does it hurt?  Should it just be blended in normally? Which similarity is best.
 * Deal with Near-misses.  Can we help suggest new commands on mistakes:
 Not all cases are "near misses" that we can easily identify. In some
 cases, we want the result to still be a "mistake", but the mistake
 message should suggest some reasonable things in the game's vocabulary
-that the person could do.
-
-What we should do, then, is exhaustively list the ConceptNet phrases
+that the person could do. What we should do, then, is exhaustively list the ConceptNet phrases
 we can understand that are not in the game's vocabulary and give them
 "mistake" responses that suggest things that do work in game.
