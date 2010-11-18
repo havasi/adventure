@@ -38,14 +38,15 @@ def top_game_sims(game, object, n=6):
     frame = divisi2.SparseVector.from_counts([object])
     sim = similarity.right_category(frame)
     all = sim.top_items(n*2)
-    clear = [(getWNSim(object, x[0]), x) for x in all if NotOverRide(game, x)]
-    clear.sort()
-    return [x[1] for x in clear][:n]
+    return all
+#    clear = [(getWNSim(object, x[0]), x) for x in all if NotOverRide(game, x)]
+#    clear.sort()
+#    return [x[1] for x in clear][:n]
     
 
 def make_blend(thefile):
     conceptnet = divisi2.network.conceptnet_matrix('en').normalize_all()
-    thegame = divisi2.load(thefile).normalize_all()
+    thegame = divisi2.load(thefile) #.normalize_all()
     blended_matrix = blend([conceptnet, thegame])
     u,s,v = blended_matrix.svd()
     
