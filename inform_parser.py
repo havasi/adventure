@@ -3,6 +3,7 @@ from collections import defaultdict
 from csc import divisi2
 from csc.nl import get_nl
 from locations import Inform6Parser
+from verb_reader import verb_reader
 
 english = get_nl('en')
 
@@ -124,10 +125,23 @@ def inform_parser(filename):
     return named_assertions
 
 def make_divisi_matrix(filename):
-    thinglist = inform_parser(filename)
+    parsedlist = inform_parser(filename)
     game = filename.split('.')[0]
-    thinglist = [(x[3], english.normalize(x[0]), x[1], english.normalize(x[2])) for x in thinglist]
-    for thing in thinglist: print thing
+    thinglist = [(1 if x[3] else -1, english.normalize(x[0]), ('right', x[1], english.normalize(x[2]))) for x in parsedlist]
+    
+    # Write out the confusingly-named overlist. First, the nouns.
+    overlist = open(game + '.over', 'w')
+    for concept1, rel, concept2, val in parsedlist:
+        if rel == 'HasProperty' and concept2 == 'mark_as_thing':
+            print >> overlist, concept1
+            print concept1
+
+    # Now the verbs.
+    verbs = verb_reader(filename)
+    for verb in verbs:
+        print >> overlist, verb
+    overlist.close()
+
     game_matrix = divisi2.make_sparse(thinglist).normalize_all()
     print game
     divisi2.save(game_matrix, game + '.pickle')
