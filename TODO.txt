@@ -8,8 +8,6 @@ we can understand that are not in the game's vocabulary and give them
 "mistake" responses that suggest things that do work in game.
 Probably start at near-misses?
 
-* Generate list of concepts not to use a similarity - we can do that from the game matrix.  Put those in the .over file.
-
 Elizabeth is working on: 6.046
 Alan is working on:
 Rob is working on: Splash
