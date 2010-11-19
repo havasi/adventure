@@ -1,6 +1,7 @@
 import pickle
 from csc.nl import get_nl
 from csc import divisi2
+from otherways import getWNSim
 from similarity import make_sim
 
 en_nl = get_nl('en')
@@ -62,7 +63,8 @@ def output_verb_similarities(filename):
         print verb
         try:
             sims = sim_pre.row_named(verb)
-            for similar_item in sims.top_items():
+            topsims = sims.top_items()
+            for similar_item in topsims:
                 new_verb = [similar_item[0] + ' ' + rest, item[1]]
                 if similar_item[0] not in dont_overload:
                   print new_verb
