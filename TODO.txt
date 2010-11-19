@@ -12,7 +12,8 @@ Probably start at near-misses?
 
 Elizabeth is working on: 6.046
 Alan is working on:
-Rob is working on:
+Rob is working on: Splash
+Jason is working on:
 Kevin is working on: Brainz
 
 
@@ -20,6 +21,7 @@ Good quick projects:
 * Re-add inflections when generating the understand statements.  Thus "Dwell" turns into "Dwelling".
 * For goodnessake, add a threshold in the thing that generates the "understand" statements!
 * Ad-hoc cats for things with multiple descriptors.  Catherine wrote the capability into the reasoning code, we need to figure it out from the game matrix.
+* Make Verb sims into inform code
 
 Someone should work on:
 * WordNet or not to wordnet? Catherine wrote code to order things via WN similarity. Does it help?  Does it hurt?  Should it just be blended in normally? Which similarity is best.
