@@ -1,17 +1,9 @@
 Catherine is working on:
-* Deal with Near-misses.  Can we help suggest new commands on mistakes:
-Not all cases are "near misses" that we can easily identify. In some
-cases, we want the result to still be a "mistake", but the mistake
-message should suggest some reasonable things in the game's vocabulary
-that the person could do. What we should do, then, is exhaustively list the ConceptNet phrases
-we can understand that are not in the game's vocabulary and give them
-"mistake" responses that suggest things that do work in game.
-Probably start at near-misses?
+* Probably start at near-misses?
 
 Elizabeth is working on: 6.046
 Alan is working on:
 Rob is working on: Splash
-Jason is working on:
 Kevin is working on: Brainz
 
 
