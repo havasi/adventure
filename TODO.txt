@@ -15,5 +15,6 @@ Good quick projects:
 
 Someone should work on:
 * WordNet or not to wordnet? Catherine wrote code to order things via WN similarity. Does it help?  Does it hurt?  Should it just be blended in normally? Which similarity is best.
+* Alt user eval - adding objects to the game to help designers
 * Normalization.  Post normalize?  Normalize all? Huh?
 * Hook to inform!
