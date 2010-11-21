@@ -128,7 +128,6 @@ def make_divisi_matrix(filename):
     parsedlist = inform_parser(filename)
     game = filename.split('.')[0]
     thinglist = [(1 if x[3] else -1, english.normalize(x[0]), ('right', x[1], english.normalize(x[2]))) for x in parsedlist]
-    
     # Write out the confusingly-named overlist. First, the nouns.
     overlist = open(game + '.over', 'w')
     for concept1, rel, concept2, val in parsedlist:
@@ -146,4 +145,4 @@ def make_divisi_matrix(filename):
     print game
     divisi2.save(game_matrix, game + '.pickle')
     
-make_divisi_matrix('bronze_compiled.inf')
+make_divisi_matrix('bronze.ni')

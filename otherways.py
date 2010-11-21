@@ -54,23 +54,23 @@ def top_non_game_sims(game, object, n=6):
 
 def make_blend(thefile):
     conceptnet = divisi2.network.conceptnet_matrix('en').normalize_all()
-    thegame = divisi2.load(thefile) #.normalize_all()
+    thegame = divisi2.load(thefile).normalize_all()
     blended_matrix = blend([conceptnet, thegame])
     u,s,v = blended_matrix.svd()
     
-    similarity = divisi2.reconstruct_similarity(u, s, offset=3) 
+    similarity = divisi2.reconstruct_similarity(u, s) # offset=1.5) 
     pd.mkdir(thefile.split('.')[0])
     pd[thefile.split('.')[0]]['blend'] = similarity
-    game_obj_sim = divisi2.reconstruct_similarity(u, s, offset=0.1)
-    pd[thefile.split('.')[0]]['game_sim'] = game_obj_sim
     return similarity
 
 def understand(game, object):
     top_stuff = top_non_game_sims(game, object)
     return 'Understand "' + '" or "'.join([x[0] for x in top_stuff]) + '" as the ' + object + '.'
 
-print understand('bronze', 'hut')
-'''print understand('bronze', 'house')
+print understand('story', 'recommend')
+
+'''print understand('bronze', 'hut')
+print understand('bronze', 'house')
 print understand('bronze', 'taste')
 print understand('bronze', 'cow')
 print understand('bronze', 'castle')
