@@ -46,11 +46,24 @@ def top_non_game_sims(game, object, n=6):
     frame = divisi2.SparseVector.from_counts([object])
     sim = similarity.right_category(frame)
     all = sim.top_items(n*2)
-    return [x for x in all if NotOverRide(game, x)]
+    return [x for x in all if NotOverRide(game, x[0])]
 #    clear = [(getWNSim(object, x[0]), x) for x in all if NotOverRide(game, x)]
 #    clear.sort()
 #    return [x[1] for x in clear][:n]
-    
+
+def game_sims(game, object, n=6):
+    if game in pd:
+        similarity = pd[game]['blend']
+    else:
+        similarity = make_blend(game + '.pickle')
+    frame = divisi2.SparseVector.from_counts([object])
+    sim = similarity.right_category(frame)
+    all = sim.top_items(n*2)
+    return [x for x in all if not NotOverRide(game, x[0])]
+#    clear = [(getWNSim(object, x[0]), x) for x in all if NotOverRide(game, x)]
+#    clear.sort()
+#    return [x[1] for x in clear][:n]
+
 
 def make_blend(thefile):
     conceptnet = divisi2.network.conceptnet_matrix('en').normalize_all()
@@ -64,14 +77,18 @@ def make_blend(thefile):
     return similarity
 
 def understand(game, object):
-    top_stuff = top_non_game_sims(game, object)
+    #top_stuff = top_non_game_sims(game, object)
+    top_stuff = game_sims(game, object)
+    if top_stuff[0][1] == 0.0:
+        print "Object not found: ", object
+        return ""
     return 'Understand "' + '" or "'.join([x[0] for x in top_stuff]) + '" as the ' + object + '.'
 
-print understand('story', 'recommend')
+#print understand('story', 'recommend')
 
-'''print understand('bronze', 'hut')
+print understand('bronze', 'hut')
 print understand('bronze', 'house')
 print understand('bronze', 'taste')
 print understand('bronze', 'cow')
 print understand('bronze', 'castle')
-print understand('bronze', 'old woman')'''
+print understand('bronze', 'old woman')

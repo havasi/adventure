@@ -7,6 +7,15 @@ from verb_reader import verb_reader
 
 english = get_nl('en')
 
+def parseText(thingy):
+    assert False
+    concepts = english.extract_concepts(p, max_words=2, check_conceptnet = True)
+    outlist = []
+    for concept in concepts:
+        # CAH - This is quite possibly highly sketch.  If this doesn't work, we'll have to spectral.
+        outlist.append(('HasProperty', concept, True))
+    return outlist
+    
 def join_words(lst):
     return ' '.join(lst)
 
@@ -72,6 +81,9 @@ canonical_name_line = (shortname_line | plural_line).setParseAction(name_assigne
 
 found_in_line = K_WITH + W_FOUND_IN + identifier
 found_in_line.setParseAction(lambda p: [('AtLocation', p[2], True)])
+desc_line = K_WITH + W_DESCRIPTION + identifier
+desc_line.setParseAction(lambda p: parseText(p))
+
 class_line = K_CLASS + identifier
 class_line.setParseAction(lambda p: [('IsA', p[1], True)])
 
@@ -80,7 +92,7 @@ class_def = D_CLASS + new_identifier
 
 defn_line = ((object_def | class_def) + stringEnd).setParseAction(id_assigner)
 prop_line = (has_line | hasnt_line | name_line | canonical_name_line
-             | found_in_line | class_line) + stringEnd
+            | desc_line | found_in_line | class_line) + stringEnd
 defn_end = (SEMICOLON + stringEnd).setParseAction(id_forgetter)
 inform_line = (defn_line | prop_line | defn_end)
 
@@ -99,6 +111,7 @@ def inform_parser(filename):
             continue
     file.close()
 
+    print assertions
     named_assertions = []
     for assertion in assertions:
         id, rel, target, polarity = assertion
@@ -145,4 +158,4 @@ def make_divisi_matrix(filename):
     print game
     divisi2.save(game_matrix, game + '.pickle')
     
-make_divisi_matrix('bronze.ni')
+make_divisi_matrix('bronze.inf')
