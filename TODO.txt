@@ -1,19 +1,10 @@
 Catherine is working on:
-* Deal with Near-misses.  Can we help suggest new commands on mistakes:
-Not all cases are "near misses" that we can easily identify. In some
-cases, we want the result to still be a "mistake", but the mistake
-message should suggest some reasonable things in the game's vocabulary
-that the person could do. What we should do, then, is exhaustively list the ConceptNet phrases
-we can understand that are not in the game's vocabulary and give them
-"mistake" responses that suggest things that do work in game.
-Probably start at near-misses?
-
-* Generate list of concepts not to use a similarity - we can do that from the game matrix.  Put those in the .over file.
+* Probably start at near-misses?
+* Alt user test
 
 Elizabeth is working on: 6.046
-Alan is working on:
+Alan is working on: Splash
 Rob is working on: Splash
-Jason is working on:
 Kevin is working on: Brainz
 
 
@@ -22,8 +13,22 @@ Good quick projects:
 * For goodnessake, add a threshold in the thing that generates the "understand" statements!
 * Ad-hoc cats for things with multiple descriptors.  Catherine wrote the capability into the reasoning code, we need to figure it out from the game matrix.
 * Make Verb sims into inform code
+* Find everything printing random stuff and make it stop
 
 Someone should work on:
 * WordNet or not to wordnet? Catherine wrote code to order things via WN similarity. Does it help?  Does it hurt?  Should it just be blended in normally? Which similarity is best.
+* Try with another game - such as the bookstore env.
 * Normalization.  Post normalize?  Normalize all? Huh?
 * Hook to inform!
+
+Alt User test:
+Add some objects like, say, a chandelier.
+
+Infer its features in terms of Inform:
+* What properties should it have? (Can you stand on it? Can you move
+it? Can you put things in it? Can you use it to see in the dark? These
+appear as HasProperty statements.)
+* Where does it fit in the class hierarchy? (Find the best IsA
+statement that relates to a class.)
+* Where might it be located when the game starts? (AtLocation)
+

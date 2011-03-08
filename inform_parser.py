@@ -3,9 +3,19 @@ from collections import defaultdict
 from csc import divisi2
 from csc.nl import get_nl
 from locations import Inform6Parser
+from verb_reader import verb_reader
 
 english = get_nl('en')
 
+def parseText(thingy):
+    assert False
+    concepts = english.extract_concepts(p, max_words=2, check_conceptnet = True)
+    outlist = []
+    for concept in concepts:
+        # CAH - This is quite possibly highly sketch.  If this doesn't work, we'll have to spectral.
+        outlist.append(('HasProperty', concept, True))
+    return outlist
+    
 def join_words(lst):
     return ' '.join(lst)
 
@@ -71,6 +81,9 @@ canonical_name_line = (shortname_line | plural_line).setParseAction(name_assigne
 
 found_in_line = K_WITH + W_FOUND_IN + identifier
 found_in_line.setParseAction(lambda p: [('AtLocation', p[2], True)])
+desc_line = K_WITH + W_DESCRIPTION + identifier
+desc_line.setParseAction(lambda p: parseText(p))
+
 class_line = K_CLASS + identifier
 class_line.setParseAction(lambda p: [('IsA', p[1], True)])
 
@@ -79,7 +92,7 @@ class_def = D_CLASS + new_identifier
 
 defn_line = ((object_def | class_def) + stringEnd).setParseAction(id_assigner)
 prop_line = (has_line | hasnt_line | name_line | canonical_name_line
-             | found_in_line | class_line) + stringEnd
+            | desc_line | found_in_line | class_line) + stringEnd
 defn_end = (SEMICOLON + stringEnd).setParseAction(id_forgetter)
 inform_line = (defn_line | prop_line | defn_end)
 
@@ -98,6 +111,7 @@ def inform_parser(filename):
             continue
     file.close()
 
+    print assertions
     named_assertions = []
     for assertion in assertions:
         id, rel, target, polarity = assertion
@@ -124,12 +138,24 @@ def inform_parser(filename):
     return named_assertions
 
 def make_divisi_matrix(filename):
-    thinglist = inform_parser(filename)
+    parsedlist = inform_parser(filename)
     game = filename.split('.')[0]
-    thinglist = [(x[3], english.normalize(x[0]), x[1], english.normalize(x[2])) for x in thinglist]
-    for thing in thinglist: print thing
+    thinglist = [(1 if x[3] else -1, english.normalize(x[0]), ('right', x[1], english.normalize(x[2]))) for x in parsedlist]
+    # Write out the confusingly-named overlist. First, the nouns.
+    overlist = open(game + '.over', 'w')
+    for concept1, rel, concept2, val in parsedlist:
+        if rel == 'HasProperty' and concept2 == 'mark_as_thing':
+            print >> overlist, concept1
+            print concept1
+
+    # Now the verbs.
+    verbs = verb_reader(filename)
+    for verb in verbs:
+        print >> overlist, verb
+    overlist.close()
+
     game_matrix = divisi2.make_sparse(thinglist).normalize_all()
     print game
     divisi2.save(game_matrix, game + '.pickle')
     
-make_divisi_matrix('bronze_compiled.inf')
+make_divisi_matrix('bronze.inf')
