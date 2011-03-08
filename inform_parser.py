@@ -8,19 +8,19 @@ from verb_reader import verb_reader
 english = get_nl('en')
 
 def parseText(thingy):
-    assert False
-    concepts = english.extract_concepts(p, max_words=2, check_conceptnet = True)
-    outlist = []
+    _, ident, string = thingy
+    concepts = english.extract_concepts(string, max_words=2, check_conceptnet=True)
     for concept in concepts:
         # CAH - This is quite possibly highly sketch.  If this doesn't work, we'll have to spectral.
-        outlist.append(('HasProperty', concept, True))
-    return outlist
+        descriptions[ident].append(('HasProperty', concept, True))
+    return []
     
 def join_words(lst):
     return ' '.join(lst)
 
 currentID = ""
 idsToNames = defaultdict(list)
+descriptions = defaultdict(list)
 
 # keywords
 K_WITH = Literal("with")
@@ -30,6 +30,7 @@ K_CLASS = Literal("class")
 # top-level definition keywords
 D_OBJECT = Literal("Object")
 D_CLASS = Literal("Class")
+D_CONSTANT = Literal("Constant")
 
 # keywords that follow "with"
 W_NAME = Literal("name")
@@ -40,13 +41,14 @@ W_PLURAL = Literal("plural")
 
 # punctuation
 TILDE = Literal("~").suppress()
+EQUALS = Literal("=").suppress()
 ARROW = Literal("->")
 SEMICOLON = Literal(";").suppress()
 
 new_identifier = Word(alphanums+'_')
 identifier = Word(alphanums+'_')
 name_list = Group(OneOrMore(sglQuotedString.setParseAction(lambda p: p[0].strip("'"))))
-num_arrows = ZeroOrMore(ARROW).setParseAction(len)
+num_arrows = ZeroOrMore(ARROW).setParseAction(lambda p: len(p))
 quoted_name = dblQuotedString.setParseAction(lambda p: p[0].strip('"'))
 
 def name_lister(parse):
@@ -82,15 +84,17 @@ canonical_name_line = (shortname_line | plural_line).setParseAction(name_assigne
 found_in_line = K_WITH + W_FOUND_IN + identifier
 found_in_line.setParseAction(lambda p: [('AtLocation', p[2], True)])
 desc_line = K_WITH + W_DESCRIPTION + identifier
-desc_line.setParseAction(lambda p: parseText(p))
+desc_line.setParseAction(lambda p: [('__description', p[2], True)])
 
 class_line = K_CLASS + identifier
 class_line.setParseAction(lambda p: [('IsA', p[1], True)])
 
 object_def = D_OBJECT + num_arrows + new_identifier + dblQuotedString.suppress()
 class_def = D_CLASS + new_identifier
+constant_def = D_CONSTANT + new_identifier + EQUALS + (sglQuotedString | dblQuotedString)
+constant_def.setParseAction(parseText)
 
-defn_line = ((object_def | class_def) + stringEnd).setParseAction(id_assigner)
+defn_line = ((object_def | class_def | constant_def) + stringEnd).setParseAction(id_assigner)
 prop_line = (has_line | hasnt_line | name_line | canonical_name_line
             | desc_line | found_in_line | class_line) + stringEnd
 defn_end = (SEMICOLON + stringEnd).setParseAction(id_forgetter)
@@ -110,6 +114,15 @@ def inform_parser(filename):
         except ParseException:
             continue
     file.close()
+    
+    new_assertions = []
+    for assertion in assertions:
+        if assertion[1] == '__description':
+            for feature in descriptions[assertion[2]]:
+                new_assertions.append((assertion[0],) + feature)
+        else:
+            new_assertions.append(assertion)
+    assertions = new_assertions
 
     print assertions
     named_assertions = []
