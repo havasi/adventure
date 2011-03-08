@@ -1,11 +1,11 @@
 from csc import divisi2
 from csc.divisi2.blending import blend
 from csc.util.persist import PickleDict
-from nltk.corpus import wordnet as wn
 
 pd = PickleDict('./pickledir/')
 
 def getWNSim(word1, word2):
+    from nltk.corpus import wordnet as wn
     syn1 = wn.synsets(word1)
     syn2 = wn.synsets(word2)
     high = 0
