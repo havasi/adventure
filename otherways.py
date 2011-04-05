@@ -1,7 +1,6 @@
 from csc import divisi2
 from csc.divisi2.blending import blend
 from csc.util.persist import PickleDict
-from nltk.corpus import wordnet as wn
 from verb_reader import verb_reader
 
 pd = PickleDict('./pickledir/')
@@ -16,6 +15,7 @@ def make_exclude_file(game):
     return overlist
     
 def getWNSim(word1, word2):
+    from nltk.corpus import wordnet as wn
     syn1 = wn.synsets(word1)
     syn2 = wn.synsets(word2)
     high = 0
