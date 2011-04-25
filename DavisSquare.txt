@@ -1,0 +1,145 @@
+"Davis Square" by Cidney Hamilton
+
+The maximum score is 2.
+
+When play begins, 
+	say "It's a bitterly cold Friday night in early February, and there's more work piled up in your dorm room back at Wellesley than there is snow piled up on your windowsill. Mercifully, though, the weekend is yours; and if you don't take a break, you'll soon go crazy. Fortunately, your favorite coffee shop is right nearby; you have plans to meet your friend Paul there, and find something worthwhile to do this weekend."
+
+Davis Square is a room. "You're standing outside the Davis Square T-stop in Somerville, Massachusetts. From here the Red Line will take you from Cambridge to Dorchester, if you so choose to take it. The neighborhood is well-lit, and across the street to the east you can see several restaurants and boutiques." 
+
+Instead of going down from Davis Square, say "It's too early for you to even think about heading home. Just the thought of huddling around Harvard Square waiting for the Senate Bus is enough to make you shudder. No; you don't think you will do that right now."
+
+The Subway is down from Davis Square.
+
+Instead of going north from Davis Square, say "You'd like to explore, but you're supposed to be meeting your friend at a coffee shop."
+
+The World is north from Davis Square.
+
+Instead of going south from Davis Square, say "You'd like to explore, but you're supposed to be meeting your friend at a coffee shop."
+
+The World is south from Davis Square.
+
+Instead of going west from Davis Square, say "You'd like to explore, but you're supposed to be meeting your friend at a coffee shop."
+
+The World is west from Davis Square.
+
+A room called the Diesel Cafe is east of Davis Square. The description of Diesel Cafe is "You're in front of a small, overpriced hipster cafe -- but it's *your* small, overpriced hipster cafe, and that makes it worth going to. Through the glass facade you can see dim lighting and people seated over tables in quiet conversation. The front door leads inside."
+
+Instead of going north from Diesel Cafe, say "You'd like to explore, but you're supposed to be meeting your friend at a coffee shop. This one should be fine."
+
+The World is north from Diesel Cafe.
+
+Instead of going south from Diesel Cafe, say "You'd like to explore, but you're supposed to be meeting your friend at a coffee shop. This one should be fine."
+
+The World is south from Diesel Cafe.
+
+Instead of going east from Diesel Cafe, say "You'd like to explore, but you're supposed to be meeting your friend at a coffee shop. This one should be fine."
+
+The World is east from Diesel Cafe.
+
+Inside from the Diesel Cafe is a room called the Main Bar. The description of the Main Bar is "Aside from a few tables, most of them already taken by couples, the main feature in this room is the bar. The menu is posted on a blackboard; the cheapest drinks run for about $3.00. Several works by local artists are on display on the wall, but none of them catch your interest this evening. Further inside, the lights begin to dim; the back rooms are the place for quiet conversation, clearly."
+
+A man called the barista is in the Main Bar. "There's a single barista standing behind the bar."
+
+Instead of examining barista, say "You see a  young man with neon-purple hair and a nose ring. Typical."
+
+A drink is a kind of thing.
+
+A drink is either cold or hot. A drink is usually hot.
+
+A mug of coffee is in the Main Bar. "There's a steaming mug of coffee sitting on the bar, waiting to be picked up by a patron." A mug of coffee is a drink.
+
+A glass of iced tea is in the Main Bar. "There's a glass of iced tea sitting on the bar, waiting to be picked up by a patron." A glass of iced tea is a drink. A glass of iced tea is cold.
+
+After asking the barista about "coffee", 
+	say "He sighs. 'I've been waiting for that fellow in the back to pick it up for fifteen minutes now. Annoying, to let something like that get cold on you.'"
+	
+After asking the barista about "tea", 
+	say "He says, 'Just made it fresh; waiting for the fellow who ordered it to pick it up. These things do take time.'"
+	
+After asking the barista about "concert",
+	say "'Yeah, that sounds like fun. Wish I had work off to go to things like that; my shift sucks, I tell you.'"
+	
+After asking the barista about "Paul",
+	say "He squints. 'Who's that?'"
+	
+After taking the mug of coffee, say "You take the mug in your hand. It's hot."
+
+Instead of taking the iced tea, say "It's not yours, and Paul doesn't like iced tea. You don't have any business picking that up."
+
+Instead of drinking the mug of coffee, say "It's not yours; you really shouldn't drink it."
+
+Inside from the Bar is a room called the Back Room. 
+East from the Bar is a room called the Back Room.
+
+The description of the Back is "It gets darker as you go further back into the cafe, and the booths and seating arrangements get larger. Behind a large pool table are several red couches. Most of them seem to be taken by people of varying ages and shapes, but a somewhat similar not-quite-fashionable style of dress. There's a bathroom here, but you don't think you need it just yet."
+
+A man called Paul is in the Back Room. "In here is your friend, Paul. He's seated on one of the couches, long hair tied back in a ponytail, a melancholy look on his face."
+
+Instead of examining Paul, say "You've known Paul for a couple years now; he works as a game developer at Turbine, but never seems to be in the office all that much. Nonetheless, he's older than you, which means he has a car and everything else that grownups have."
+
+After asking Paul about "Diesel/cafe", say
+	"'Love this place. I really do. Sometimes the crowd gets to me, though, y'know?'"
+	
+After asking Paul about "mood/feeling", say
+	"He sighs. 'It's been a really long day. I'm not feeling so good; need my coffee fix, y'know?"
+	
+After asking Paul about "coffee/drink", say
+	"He frowns. 'I did order a coffee back a while ago; think you could grab it for me?'"
+
+After asking Paul about "concert/flyer/Kate/rush":
+	if Paul has flyer:
+		if Paul has coffee:
+			say "'I could give you a ride, if you wanted to go that badly. What do you think?' (Say YES or NO.)";
+		otherwise:
+			say "Hm...that's all the way out in Jamaica Plain. One of these days you really need to get a car. Then you can be the lady with the car, and wouldn't have to bum a ride off of people like me.";
+	otherwise:
+		say "'There's a concert? I think I saw a flyer a while back; can you show me it?'"
+		
+After asking Paul about "ride":
+	if Paul has flyer:
+		say "'Are you sure you can blow off all your classwork this weekend?' he asks.";
+	otherwise:
+		say "'I don't know what you're talking about.'"
+
+After answering Paul that "yes":
+	if Paul has flyer:
+		say "'Sure! I'll pick you up outside your dorm room tomorrow morning. Just...don't blame me when you fall behind on your work tomorrow.'";
+		award 1 point;
+		end the game in victory;
+	otherwise:
+		say "Paul looks extremely confused. 'Yes, what?'"
+	
+	
+After answering Paul that "no":
+	end the game saying "You decide to go back to Wellesley to spend the weekend studying. This does not greatly alleviate your depression; but, you make do."
+	
+Persuasion rule for asking Paul to try taking coffee: 
+	move the mug of coffee to Paul;	
+		award 1 point;	
+		say "'Ah; that's my coffee. Thank you very much.' He takes a long sip.  'Now; was there something you were going to ask me?"
+		
+Persuasion rule for asking Paul to try taking flyer: 
+	move flyer to Paul;
+	say "He frowns at the flyer. 'Kate Rush? That's a friend of mine...didn't know she was still performing. Did you want to go?'";
+	persuasion succeeds.
+
+Instead of giving or showing coffee to Paul:
+		move the mug of coffee to Paul;	
+		award 1 point;	
+		say "'Ah; that's my coffee. Thank you very much.' He takes a long sip.  'Now; was there something you were going to ask me?"
+
+A flyer is in the Back Room. "A flyer advertising a concert by Kate Rush is posted up on the wall."
+
+After taking the flyer, say "A concert! That certainly sounds interesting. You pick up the flyer so that you can examine it more closely."
+
+Instead of examining the flyer:
+	if the player is carrying the flyer:
+		say "The concert is this Sunday, at 2PM, at a 'very private studio' in Jamaica Plain. You don't recognize the address, and aren't sure if it's T-accessible. It looks like you'll need a ride.";
+	otherwise:
+		say "You can't see it all that well from here; why don't you try picking it up?"
+		
+Instead of giving or showing the flyer to Paul:
+		move flyer to Paul;
+		say "He frowns at the flyer. 'Kate Rush? That's a friend of mine...didn't know she was still performing. Did you want to go?'"
+		
