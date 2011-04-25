@@ -7,7 +7,7 @@ import re
 
 # makeMyRegex:  first group is name of person asked, second is list of topics
 def makeMyRegex():
-        return re.compile("After asking (?P<name>\w+) about \"(?P<topics>.+)\",")
+        return re.compile("After asking (?P<name>\.+) about \"(?P<topics>.+)\",")
 
 
 # supplyAskTopics:  Assuming a dictionary from words to lists of
