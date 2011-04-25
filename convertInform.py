@@ -7,7 +7,7 @@ import re
 
 # makeMyRegex:  first group is name of person asked, second is list of topics
 def makeMyRegex():
-        return re.compile("After asking (?P<name>\.+) about \"(?P<topics>.+)\",")
+        return re.compile("After asking (?P<name>\.+) about \"(?P<topics>.+)\",(?P<rest>")
 
 
 # supplyAskTopics:  Assuming a dictionary from words to lists of
@@ -38,6 +38,8 @@ def supplyAskTopics(topicDict,fileString,myRegex):
                 returnString += newtopic
                 firstTopic = False
         returnString += "\","
+	rest = patternMatch.group(3)
+	returnString += rest
         return returnString
 
 # convertFile:  This is the workhorse, to be run on an Inform file.
