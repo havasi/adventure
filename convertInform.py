@@ -57,3 +57,17 @@ def convertFile(topicDict, filename, newFilename):
 	file = open(newFilename, 'w')
 	file.write(output)
 	file.close()
+
+# pullAllTopics:  pull all conversation topics from file
+def pullAllTopics(filename):
+	regex = makeMyRegex()
+	file = open(filename, 'r')
+	topics = []
+	for line in file:
+		myMatch = regex.match(line)
+		if myMatch != None:
+			topicText = myMatch.group(2)
+        		topicList = re.split('[\W]+', topicText)
+			topics.extend(topicList)
+	file.close()
+	return topics
