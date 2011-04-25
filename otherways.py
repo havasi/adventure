@@ -86,8 +86,11 @@ def understand(game, object):
     #return 'Understand "' + '" or "'.join([x[0] for x in top_stuff]) + '" as the ' + object + '.'
 
 def synonyms(game, threshold=1):
+    dict = {}
     for obj in divisi2.load(game + '.pickle').row_labels:
-        print game, obj, [ x[0] for x in game_sims(game, obj, threshold=threshold) ]
+        dict[obj] = [ x[0] for x in game_sims(game, obj, threshold=threshold) ]
+
+    return dict
 
 #print understand('story', 'recommend')
 
@@ -98,4 +101,4 @@ def synonyms(game, threshold=1):
 #understand('bronze', 'castle')
 #understand('bronze', 'old woman')
 
-synonyms('davissquare', 0)
+#synonyms('davissquare', 0)
