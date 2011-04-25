@@ -7,7 +7,7 @@ import re
 
 # makeMyRegex:  first group is name of person asked, second is list of topics
 def makeMyRegex():
-        return re.compile("After asking (?P<name>\.+) about \"(?P<topics>.+)\",(?P<rest>")
+        return re.compile("After asking (?P<name>[\w|\W]+) about \"(?P<topics>.+)\"(?P<rest>.+)")
 
 
 # supplyAskTopics:  Assuming a dictionary from words to lists of
@@ -21,6 +21,7 @@ def supplyAskTopics(topicDict,fileString,myRegex):
         patternMatch = myRegex.match(fileString)
         if (patternMatch == None):
                 return fileString       # most lines in file are unaffected
+	print 'merp'
         personAsked = patternMatch.group(1)
         topicListText = patternMatch.group(2)
         topicList = re.split('[\W]+', topicListText)
@@ -37,7 +38,7 @@ def supplyAskTopics(topicDict,fileString,myRegex):
                         returnString += "/"
                 returnString += newtopic
                 firstTopic = False
-        returnString += "\","
+	returnString += "\""
 	rest = patternMatch.group(3)
 	returnString += rest
         return returnString
@@ -49,7 +50,7 @@ def convertFile(topicDict, filename, newFilename):
 	myRegex = makeMyRegex()
 	file = open(filename, 'r')
 	for line in file:
-		output += supplyAskTopics(topicDict,line,myRegex) + "\n"
+		output += supplyAskTopics(topicDict,line,myRegex)
 	file.close()
 	file = open(newFilename, 'w')
 	file.write(output)
