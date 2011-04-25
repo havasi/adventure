@@ -51,7 +51,7 @@ def top_non_game_sims(game, object, n=6):
 #    clear.sort()
 #    return [x[1] for x in clear][:n]
 
-def game_sims(game, object, n=6):
+def game_sims(game, object, n=6, threshold=1):
     if game in pd:
         similarity = pd[game]['blend']
     else:
@@ -59,7 +59,7 @@ def game_sims(game, object, n=6):
     frame = divisi2.SparseVector.from_counts([object])
     sim = similarity.right_category(frame)
     all = sim.top_items(n*2)
-    return [x for x in all if not NotOverRide(game, x[0])]
+    return [x for x in all if not NotOverRide(game, x[0]) or x[1] >= threshold]
 #    clear = [(getWNSim(object, x[0]), x) for x in all if NotOverRide(game, x)]
 #    clear.sort()
 #    return [x[1] for x in clear][:n]
@@ -68,7 +68,7 @@ def game_sims(game, object, n=6):
 def make_blend(thefile):
     conceptnet = divisi2.network.conceptnet_matrix('en').normalize_all()
     thegame = divisi2.load(thefile).normalize_all()
-    blended_matrix = blend([conceptnet, thegame])
+    blended_matrix = blend([conceptnet, thegame], [0.9, 0.1])
     u,s,v = blended_matrix.svd()
     
     similarity = divisi2.reconstruct_similarity(u, s) # offset=1.5) 
@@ -79,16 +79,23 @@ def make_blend(thefile):
 def understand(game, object):
     #top_stuff = top_non_game_sims(game, object)
     top_stuff = game_sims(game, object)
-    if top_stuff[0][1] == 0.0:
-        print "Object not found: ", object
-        return ""
-    return 'Understand "' + '" or "'.join([x[0] for x in top_stuff]) + '" as the ' + object + '.'
+    print game, object, top_stuff
+    #if top_stuff[0][1] == 0.0:
+    #    print "Object not found: ", object
+    #    return ""
+    #return 'Understand "' + '" or "'.join([x[0] for x in top_stuff]) + '" as the ' + object + '.'
+
+def synonyms(game, threshold=1):
+    for obj in divisi2.load(game + '.pickle').row_labels:
+        print game, obj, [ x[0] for x in game_sims(game, obj, threshold=threshold) ]
 
 #print understand('story', 'recommend')
 
-print understand('bronze', 'hut')
-print understand('bronze', 'house')
-print understand('bronze', 'taste')
-print understand('bronze', 'cow')
-print understand('bronze', 'castle')
-print understand('bronze', 'old woman')
+#understand('bronze', 'hut')
+#understand('bronze', 'house')
+#understand('bronze', 'taste')
+#understand('bronze', 'cow')
+#understand('bronze', 'castle')
+#understand('bronze', 'old woman')
+
+synonyms('davissquare', 0)

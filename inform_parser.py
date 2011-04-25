@@ -168,7 +168,9 @@ def make_divisi_matrix(filename):
     overlist.close()
 
     game_matrix = divisi2.make_sparse(thinglist).normalize_all()
-    print game
     divisi2.save(game_matrix, game + '.pickle')
+    return game_matrix
     
-make_divisi_matrix('bronze.inf')
+if __name__ == '__main__':
+    import sys
+    matrix = make_divisi_matrix(dict(enumerate(sys.argv)).get(1, 'bronze.inf'))
