@@ -20,12 +20,13 @@ def makeMyRegex():
 def supplyAskTopics(topicDict,fileString,myRegex):
         patternMatch = myRegex.match(fileString)
         if (patternMatch == None):
+		print fileString
                 return fileString       # most lines in file are unaffected
-	print 'merp'
         personAsked = patternMatch.group(1)
         topicListText = patternMatch.group(2)
         topicList = re.split('[\W]+', topicListText)
-        newTopicList = topicList
+        newTopicList = []
+	newTopicList.extend(topicList)
         for topic in topicList:
 		if topic in topicDict:
                 	topicLookup = topicDict[topic]
@@ -41,6 +42,7 @@ def supplyAskTopics(topicDict,fileString,myRegex):
 	returnString += "\""
 	rest = patternMatch.group(3)
 	returnString += rest
+	print returnString
         return returnString
 
 # convertFile:  This is the workhorse, to be run on an Inform file.
