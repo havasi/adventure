@@ -145,9 +145,22 @@ def pullAllTopics(filename):
 	suggestsRegex = makeSuggestsRegex()
 	topicList = getEmilyShortTopics(text, subjectRegex, suggestsRegex)
 	understandsRegexes = makeBoatloadOfUnderstandsRegexes():
-	understandDict = getEmilyShortUnderstands(text, understandRegexes):
+	understandDict = getEmilyShortUnderstands(text, understandsRegexes):
 	topicList.extend(understandDict.keys())
 	return topicList
+
+def convertFile(topicDict, understandsDict, filename, newFilename):
+	text = ""
+	file = open(filename, 'r')
+	for line in file:
+		text += line 
+	file.close()
+	understandsRegexes = makeBoatloadOfUnderstandsRegexes():
+	understandDict = getEmilyShortUnderstands(text, understandsRegexes):
+	file = open(newFilename, 'w')
+	file.write(text + "\n\n" + supplyUnderstandTopics(topicDict,understandDict))
+	file.close()
+	
 
 # convertFile:  This is the workhorse, to be run on an Inform file.
 # Must pass in the topic dictionary.
