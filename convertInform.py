@@ -149,6 +149,12 @@ def pullAllTopics(filename):
 	topicList.extend(understandDict.keys())
 	return topicList
 
+# convertFile:  This takes:
+#	topicDict:  from Open Mind, map of topics to related topics
+#	understandsDict:  from getEmilyShortUnderstands, gets the
+#		map of "Understands x as y"
+#	filename: source
+#	newFilename:  new filename
 def convertFile(topicDict, understandsDict, filename, newFilename):
 	text = ""
 	file = open(filename, 'r')
