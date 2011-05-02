@@ -144,8 +144,8 @@ def pullAllTopics(filename):
 	subjectRegex = makeSubjectRegex()
 	suggestsRegex = makeSuggestsRegex()
 	topicList = getEmilyShortTopics(text, subjectRegex, suggestsRegex)
-	understandsRegexes = makeBoatloadOfUnderstandsRegexes():
-	understandDict = getEmilyShortUnderstands(text, understandRegexes):
+	understandsRegexes = makeBoatloadOfUnderstandsRegexes()
+	understandDict = getEmilyShortUnderstands(text, understandsRegexes)
 	topicList.extend(understandDict.keys())
 	return topicList
 
