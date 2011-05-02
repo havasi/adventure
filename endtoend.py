@@ -1,6 +1,12 @@
-from convertInform import convertFile
+from convertInform import pullAllTopics
+#convertFile, pullAllTopics
 from otherways import synonyms
 
-para = synonyms('davissquare', 0)
+# Davis Square
+#topics = pullAllTopics('DavisSquare.txt')
+#para = synonyms('davissquare', topics, 0)
+#convertFile(para, 'DavisSquare.txt', 'AIwashere.txt')
 
-convertFile(para, 'DavisSquare.txt', 'AIwashere.txt')
+# Glass
+topics = pullAllTopics('Glass.txt')
+assert False
