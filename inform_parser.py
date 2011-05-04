@@ -59,7 +59,7 @@ def name_lister(parse):
 
 def name_assigner(parse):
     if currentID:
-        idsToNames[currentID].append(parse[2])
+        idsToNames[currentID].append(parse[2].replace('^',"'"))
     return []
 
 def id_assigner(parse):
@@ -153,7 +153,7 @@ def inform_parser(filename):
 def make_divisi_matrix(filename):
     parsedlist = inform_parser(filename)
     game = filename.split('.')[0]
-    thinglist = [(1 if x[3] else -1, english.normalize(x[0]), ('right', x[1], english.normalize(x[2]))) for x in parsedlist]
+    thinglist = [(1 if x[3] else -1, english.normalize(x[0].replace('^', "'")), ('right', x[1], english.normalize(x[2].replace('^', "'")))) for x in parsedlist]
     # Write out the confusingly-named overlist. First, the nouns.
     overlist = open(game + '.over', 'w')
     for concept1, rel, concept2, val in parsedlist:
@@ -173,4 +173,4 @@ def make_divisi_matrix(filename):
     
 if __name__ == '__main__':
     import sys
-    matrix = make_divisi_matrix(dict(enumerate(sys.argv)).get(1, 'bronze.inf'))
+    matrix = make_divisi_matrix(dict(enumerate(sys.argv)).get(1, 'glass.inf'))

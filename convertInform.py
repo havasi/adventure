@@ -144,8 +144,8 @@ def pullAllTopics(filename):
 	subjectRegex = makeSubjectRegex()
 	suggestsRegex = makeSuggestsRegex()
 	topicList = getEmilyShortTopics(text, subjectRegex, suggestsRegex)
-	understandsRegexes = makeBoatloadOfUnderstandsRegexes():
-	understandDict = getEmilyShortUnderstands(text, understandsRegexes):
+	understandsRegexes = makeBoatloadOfUnderstandsRegexes()
+	understandDict = getEmilyShortUnderstands(text, understandsRegexes)
 	topicList.extend(understandDict.keys())
 	return topicList
 
@@ -161,8 +161,8 @@ def convertFile(topicDict, understandsDict, filename, newFilename):
 	for line in file:
 		text += line 
 	file.close()
-	understandsRegexes = makeBoatloadOfUnderstandsRegexes():
-	understandDict = getEmilyShortUnderstands(text, understandsRegexes):
+	understandsRegexes = makeBoatloadOfUnderstandsRegexes()
+	understandDict = getEmilyShortUnderstands(text, understandsRegexes)
 	file = open(newFilename, 'w')
 	file.write(text + "\n\n" + supplyUnderstandTopics(topicDict,understandDict))
 	file.close()

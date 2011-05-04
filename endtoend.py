@@ -2,17 +2,27 @@ from convertInform import pullAllTopics
 #convertFile, pullAllTopics
 from otherways import synonyms
 import divisi2
+from simplenlp import get_nl
+
+en_nl = get_nl('en')
+
 
 # Davis Square
 #topics = pullAllTopics('DavisSquare.txt')
 #para = synonyms('davissquare', topics, 0)
 #convertFile(para, 'DavisSquare.txt', 'AIwashere.txt')
 
+topics = pullAllTopics('Glass.txt')
+topics = [en_nl.normalize(x) for x in topics]
+para = synonyms('glass', topics, 0)
+assert False
+
+# Glass - rough
+'''
 conceptnet = divisi2.network.conceptnet_matrix('en').normalize_all()
 u,s,v = conceptnet.svd()
 similarity = divisi2.reconstruct_similarity(u, s) # offset=1.5)
 
-# Glass
 def make_sim_rough(object, topics, n=2):
     frame = divisi2.SparseVector.from_counts([object])
     sim = similarity.right_category(frame)
@@ -23,5 +33,5 @@ def make_sim_rough(object, topics, n=2):
 topics = pullAllTopics('Glass.txt')
 for object in topics:
     print object
-    print make_sim_rough(object, topics)
+    print make_sim_rough(object, topics)'''
 
