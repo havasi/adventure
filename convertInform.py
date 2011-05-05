@@ -36,7 +36,12 @@ def makeBoatloadOfUnderstandsRegexes():
 		for j in range(0,i):
 			regexText += " or \"([\w| ]+)\""
 		regexText += " as ([\w| ]+)."
-		print regexText
+		regexList.append(re.compile(regexText))
+		# same thing for 'and'
+		regexText = "Understand \"([\w| ]+)\""
+		for j in range(0,i):
+			regexText += " and \"([\w| ]+)\""
+		regexText += " as ([\w| ]+)."
 		regexList.append(re.compile(regexText))
 	return regexList
 
@@ -149,13 +154,25 @@ def pullAllTopics(filename):
 	topicList.extend(understandDict.keys())
 	return topicList
 
+# pullDictMap:  a little redundant, but convenient for not messing with
+# multiple return values
+def pullDictMap(filename):
+	text = ""
+	file = open(filename, 'r')
+	for line in file:
+		text += line 
+	file.close()
+	understandsRegexes = makeBoatloadOfUnderstandsRegexes()
+	understandDict = getEmilyShortUnderstands(text, understandsRegexes)
+	return understandDict
+
+# pullDictMap:  a little redundant, but convenient for not messing with
+
 # convertFile:  This takes:
 #	topicDict:  from Open Mind, map of topics to related topics
-#	understandsDict:  from getEmilyShortUnderstands, gets the
-#		map of "Understands x as y"
 #	filename: source
 #	newFilename:  new filename
-def convertFile(topicDict, understandsDict, filename, newFilename):
+def convertFile(topicDict, filename, newFilename):
 	text = ""
 	file = open(filename, 'r')
 	for line in file:
@@ -164,7 +181,7 @@ def convertFile(topicDict, understandsDict, filename, newFilename):
 	understandsRegexes = makeBoatloadOfUnderstandsRegexes()
 	understandDict = getEmilyShortUnderstands(text, understandsRegexes)
 	file = open(newFilename, 'w')
-	file.write(text + "\n\n" + supplyUnderstandTopics(topicDict,understandDict))
+	file.write(text + "\n\n" + supplyUnderstandText(topicDict,understandDict))
 	file.close()
 	
 

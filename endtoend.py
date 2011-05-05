@@ -1,4 +1,5 @@
 from convertInform import pullAllTopics
+from convertInform import convertFile
 #convertFile, pullAllTopics
 from otherways import synonyms
 import divisi2
@@ -15,6 +16,7 @@ en_nl = get_nl('en')
 topics = pullAllTopics('Glass.txt')
 topics = [en_nl.normalize(x) for x in topics]
 para = synonyms('glass', topics, 0)
+convertFile(para, 'Glass.txt', 'new_glass.txt')
 assert False
 
 # Glass - rough
