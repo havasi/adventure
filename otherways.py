@@ -91,12 +91,13 @@ def game_synonyms(game, threshold=1):
         dict[obj] = [ x[0] for x in game_sims(game, obj, threshold=threshold) ]
     return dict
 
-def synonyms(game, topics, threshold=1):
+def synonyms(game, topics, maxnum = 5, threshold=1):
     conv_syms = game_synonyms(game, threshold)
     for topic in topics:
         if topic in conv_syms.keys(): continue
         else:
-            conv_syms[topic] = [x[0] for x in game_sims(game, topic, threshold=threshold)]
+            conv_syms[topic] = [x[0] for x in game_sims(game, topic, threshold=threshold)][:maxnum]
+            if len(conv_syms[topic]) > 6: assert False
     return conv_syms
 
 #print understand('story', 'recommend')
