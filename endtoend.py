@@ -9,11 +9,13 @@ en_nl = get_nl('en')
 
 topics = pullAllTopics('Glass.txt')
 backdict = {}
+topics2 = []
 for item in topics:
     norm = en_nl.normalize(item)
     backdict[item] = norm
-topics = [en_nl.normalize(x) for x in topics]
-para = synonyms('glass', topicsn, 5, 0.2)
+    topics2.append(item)
+topics = topics2
+para = synonyms('glass', topics, 5, 0.2)
 para2 = {}
 
 for key, items in para.items():
