@@ -8,12 +8,17 @@ from simplenlp import get_nl
 en_nl = get_nl('en')
 
 topics = pullAllTopics('Glass.txt')
+backdict = {}
+for item in topics:
+    norm = en_nl.normalize(x)
+    backdict[item] = norm
 topics = [en_nl.normalize(x) for x in topics]
-para = synonyms('glass', topics, 5, 0.2)
+para = synonyms('glass', topicsn, 5, 0.2)
 para2 = {}
+
 for key, items in para.items():
     if key not in topics: continue
-    para2[key] = items[:6]
+    para2[backdict[key]] = items[:6]
 convertFile(para2, 'Glass.txt', 'new_glass.txt')
 
 # Davis Square
